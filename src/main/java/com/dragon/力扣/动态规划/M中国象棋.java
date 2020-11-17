@@ -1,6 +1,6 @@
 package com.dragon.力扣.动态规划;
 
-public class Hourse {
+public class M中国象棋 {
 
     /**
      * 中国象棋从00点开始走k步到x，y有几种可能

@@ -9,7 +9,8 @@ package com.dragon.力扣.数组和字符串;
  */
 public class S4寻找两个正序数组的中位数 {
     /**
-     * 获取两个有序数组的中位数
+     * 寻找两个数组中位数
+     * 遍历k次，然后每次都是小的向前走一步
      * @param nums1
      * @param nums2
      * @return
@@ -22,9 +23,9 @@ public class S4寻找两个正序数组的中位数 {
         int left = 0;
         int right = 0;
         for(int i = 0 ;i<=sum/2;i++){
-            left = right;
+            left = right;   //记录中位数的前一个
             if(index1<m&&(index2>=n||nums1[index1]<nums2[index2])){
-                right = nums1[index1++];
+                right = nums1[index1++];    //记录中位数
             }else{
                 right = nums2[index2++];
             }
@@ -74,20 +75,20 @@ class Solution {
     public int getKthElement1(int[] nums1, int[] nums2, int k) {
         int n1 = nums1.length;
         int n2 = nums2.length;
-        int index1 = 0;
-        int index2 = 0;
+        int index1 = 0; //记录1的位置
+        int index2 = 0; //记录2的位置
         while(true){
             //判断边界
-            if(index1==n1)return nums2[index2+k-1];
-            if(index2==n2)return nums1[index1+k-1];
-            if(k==1)return Math.min(nums1[index1],nums2[index2]);
-            int href = k/2;
-            int newIndex1 = Math.min(index1+href,n1)-1;
-            int newIndex2 = Math.min(index2+href,n2)-1;
+            if(index1==n1)return nums2[index2+k-1]; //1走完了
+            if(index2==n2)return nums1[index1+k-1]; //2走完了
+            if(k==1)return Math.min(nums1[index1],nums2[index2]);   //找到k了
+            int href = k/2; //二分
+            int newIndex1 = Math.min(index1+href,n1)-1; //防止越界
+            int newIndex2 = Math.min(index2+href,n2)-1; //防止越界
             int p1 = nums1[newIndex1];
             int p2 = nums2[newIndex2];
             if(p1<=p2){
-                k -= (newIndex1 - index1 + 1);
+                k -= (newIndex1 - index1 + 1);  //必须加一，k减去新增的距离，这部分已经是小的了
                 index1 = newIndex1+1;
             }else{
                 k -= (newIndex2 - index2 + 1);

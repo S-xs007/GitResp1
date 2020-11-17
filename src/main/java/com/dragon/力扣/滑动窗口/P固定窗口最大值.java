@@ -1,4 +1,4 @@
-package com.dragon.力扣.欢动窗口;
+package com.dragon.力扣.滑动窗口;
 
 import java.util.Deque;
 import java.util.LinkedList;

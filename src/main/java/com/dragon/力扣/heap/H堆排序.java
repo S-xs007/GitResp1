@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 堆排序
  */
-public class HeapSort {
+public class H堆排序 {
     public static void swap(int[] arr, int i, int j){
         int temp = arr[i];
         arr[i] = arr[j];

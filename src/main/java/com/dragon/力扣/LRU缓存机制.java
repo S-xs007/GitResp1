@@ -3,6 +3,9 @@ package com.dragon.力扣;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 11-13 中午1次
+ */
 public class LRU缓存机制 {
 }
 class LRUCache {
@@ -30,6 +33,12 @@ class LRUCache {
         tail.prev = head;
     }
 
+    /**
+     * 1.先从map中看看有没有
+     * 2.将该节点移动到链表头节点处（LRU算法就是使用的越多越不容易删除）
+     * @param key
+     * @return
+     */
     public int get(int key) {
         DLinkedNode node = cache.get(key);
         if (node == null) {
@@ -40,6 +49,14 @@ class LRUCache {
         return node.value;
     }
 
+    /**
+     * 1.先看map中有没有，有的话就修改node的value，然后移动到头部
+     * 2.没有的话就创建一个节点封装kv，然后放到hash中，头插法 在判断是不是超越对打容量了
+     *      超过了就删除链表尾的节点，然后从map中清除
+     *      没超过就结束
+     * @param key
+     * @param value
+     */
     public void put(int key, int value) {
         DLinkedNode node = cache.get(key);
         if (node == null) {
@@ -65,6 +82,7 @@ class LRUCache {
         }
     }
 
+
     //头插法
     private void addToHead(DLinkedNode node) {
         node.prev = head;
@@ -72,7 +90,6 @@ class LRUCache {
         head.next.prev = node;
         head.next = node;
     }
-
     //删除双端链表的节点
     private void removeNode(DLinkedNode node) {
         node.prev.next = node.next;
@@ -89,5 +106,57 @@ class LRUCache {
         removeNode(res);
         return res;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
