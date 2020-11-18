@@ -1,4 +1,4 @@
-package com.dragon.力扣.单链表;
+package com.dragon.力扣.链表;
 
 public class ListNode {
     public int val;

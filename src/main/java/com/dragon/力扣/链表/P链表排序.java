@@ -1,4 +1,4 @@
-package com.dragon.力扣.单链表;
+package com.dragon.力扣.链表;
 
 /**
  * 找重点一定要利用快慢指针

@@ -1,4 +1,4 @@
-package com.dragon.力扣;
+package com.dragon.力扣.设计问题;
 
 import java.util.HashMap;
 import java.util.Map;
