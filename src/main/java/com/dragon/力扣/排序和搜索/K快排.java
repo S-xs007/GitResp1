@@ -10,25 +10,26 @@ package com.dragon.力扣.排序和搜索;
  * 然后对左边和右边进行上述操作
  */
 public class K快排 {
-
-
-    public static void quickSort1(int[] nums,int left,int right){
-        if(left>=right)return;
+    public static void quickSort(int[] nums,int left,int right){
+        if(left>=right){
+            return;
+        }
         int l = left;
         int r = right;
         int key = nums[l];
         while(l<r){
-            while(l<r&&nums[r]>=key){
+            while(l<r && nums[r]>=key){
                 r--;
             }
-            swap(nums,l,r);
-            while(l<r&&nums[l]<=key){
+            swap(nums, l, r);
+            while(l<r && nums[l]<=key){
                 l++;
             }
-            swap(nums,l,r);
+            swap(nums, l, r);
         }
-        quickSort1(nums,0,l-1);
-        quickSort1(nums,r+1,right);
+        quickSort(nums,0,l-1);
+        quickSort(nums,r+1,right);
+
     }
 
     public static void swap(int[] nums,int l,int r){
@@ -39,7 +40,7 @@ public class K快排 {
 
     public static void main(String[] args) {
         int[] arr = {5,3,6,3,5,3,5,32,1,7,2};
-        K快排.quickSort1(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
         for (int i : arr) {
             System.out.print(i + "\t");
         }

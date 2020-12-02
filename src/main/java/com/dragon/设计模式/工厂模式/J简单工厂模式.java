@@ -1,7 +1,11 @@
 package com.dragon.设计模式.工厂模式;
 
 import com.dragon.设计模式.proxy.IPerson;
-
+/**
+ * @Author: zxS
+ * @Date: 21:29 2020/11/20
+ * @Description：简单工厂模式就是在工厂中进行判断（if/else  switch  或者通过反射）
+ */
 public class J简单工厂模式 {
 
     public static void main(String[] args) throws InstantiationException, IllegalAccessException {

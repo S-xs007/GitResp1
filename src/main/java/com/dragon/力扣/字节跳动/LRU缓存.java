@@ -1,5 +1,6 @@
 package com.dragon.力扣.字节跳动;
 
+import java.nio.Buffer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,13 +9,9 @@ import java.util.Map;
  * 写入数据 put(key, value) - 如果关键字已经存在，则变更其数据值；如果关键字不存在，则插入该组「关键字/值」。当缓存容量达到上限时，它应该在写入新数据之前删除最久未使用的数据值，从而为新的数据值留出空间。
  *
  *
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/lru-cache
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LRU缓存 {
-    class DLinkedNode { //双向链表
+    class DLinkedNode { //双向链表（node）
         int key;
         int value;
         DLinkedNode prev;
@@ -48,7 +45,7 @@ public class LRU缓存 {
         return node.value;
     }
 
-    public void put(int key, int value) {
+    public void put(int key, int value) {       //新加入的节点在头部，删除的都在尾部
         DLinkedNode node = cache.get(key);
         if (node == null) {
             // 如果 key 不存在，创建一个新的节点
@@ -73,7 +70,7 @@ public class LRU缓存 {
         }
     }
 
-    private void addToHead(DLinkedNode node) {
+    private void addToHead(DLinkedNode node) {  //插入到node的后面
         node.prev = head;
         node.next = head.next;
         head.next.prev = node;

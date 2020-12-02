@@ -53,7 +53,7 @@ public class J接雨水 {
     }
 
     /**
-     * 单调栈
+     * 单调队列
      * @param height
      * @return
      */
@@ -61,14 +61,14 @@ public class J接雨水 {
         int ans = 0, index = 0;
         Deque<Integer> stack = new LinkedList<Integer>();
 
-        //单调递减
+        //单调递减的双向队列
         //一旦出现大于的，就开始处理
         while (index < height.length) {
             while (!stack.isEmpty() && height[index] > height[stack.peek()]) {  //如果栈顶<当前
                 int top = stack.pop();  //左右边界height[index]，height[stack.peek()]
                 if (stack.isEmpty()) break;
-                int distance = index - stack.peek() - 1;
-                int bounded_height = Math.min(height[index], height[stack.peek()]) - height[top];
+                int distance = index - stack.peek() - 1;    //得到左右距离
+                int bounded_height = Math.min(height[index], height[stack.peek()]) - height[top];   //得到当前高度
                 ans += distance * bounded_height;
             }
             stack.push(index++);
@@ -88,7 +88,7 @@ public class J接雨水 {
         int ans = 0;
         int left_max = 0, right_max = 0;
         while (left < right) {
-            if (height[left] < height[right]) {         //左指针位置<右指针位置
+            if (height[left] < height[right]) {         //左指针位置 < 右指针位置
                 if (height[left] >= left_max) {
                     left_max = height[left];
                 } else {

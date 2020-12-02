@@ -1,6 +1,6 @@
 package com.dragon.力扣.链表;
 
-public class LC合并两个有序链表 {
+public class OFFER合并两个有序链表 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(1);
         ListNode root = head;

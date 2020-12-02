@@ -3,11 +3,17 @@ package com.dragon.力扣.栈和队列;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Stack;
-
+/**
+ * @Author: zxS
+ * @Date: 14:20 2020/11/30
+ * @Description：
+ */
 public class L两个栈实现队列 {
-
-
 }
+
+/**
+ * 两个栈一个push  一个pop  只有pop为空时才把push全都放到pop
+ */
 class CQueue {
     Deque<Integer> push;
     Deque<Integer> pop;

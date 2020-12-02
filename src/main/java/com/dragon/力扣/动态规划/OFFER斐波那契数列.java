@@ -1,30 +1,18 @@
 package com.dragon.力扣.动态规划;
 
-public class 斐波那契数列 {
-    public static void main(String[] args) {
-        System.out.println(fb(4));
-        System.out.println(db(4));
-    }
-    //方法1 直接递归
-    public static int fb(int n){
-        if(n==1)return 1;
-        if(n==2)return 1;
-        return fb(n-1)+fb(n-2);
-    }
-
-    //方法二  动态规划
-    public static int db(int n){
-        int pre = 1;
-        int cur = 1;
-        for(int i = 3;i<=n;i++){
-            int tem = pre+cur;
-            pre = cur;
-            cur = tem;
+public class OFFER斐波那契数列 {
+    //方法一  动态规划
+    public int fib(int n) {
+        int n1 = 0, n2 = 1, sum;
+        for(int i = 0; i < n; i++){
+            sum = (n1 + n2) % 1000000007;
+            n1 = n2;
+            n2 = sum;
         }
-        return cur;
+        return n1;
     }
 
-    //方法三  矩阵快速幂
+    //方法二  矩阵快速幂
     public static int f3(int n){
         if(n<1){
             return 0;
@@ -64,5 +52,10 @@ public class 斐波那契数列 {
         }
         return res;
     }
+
+
+
+
+
 
 }

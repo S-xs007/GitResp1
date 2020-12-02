@@ -25,7 +25,4 @@ public class OFFER顺时针打印矩阵 {
             }
             return order;
         }
-
-
-
 }

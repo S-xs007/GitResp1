@@ -1,5 +1,7 @@
-package com.dragon.力扣.链表;
+package com.dragon.力扣.栈和队列;
 
+
+import com.dragon.力扣.链表.ListNode;
 
 import java.util.Stack;
 
@@ -18,11 +20,10 @@ public class OFFER从尾到头打印链表 {
         }
         int size = stack.size();
         int[] result = new int[size];
-        for(int i = 0;i< size;i++){
+        for (int i = 0; i < size; i++) {
             result[i] = stack.pop().val;
         }
         return result;
-
     }
 }
 

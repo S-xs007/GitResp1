@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-public class OFFER反转单词顺序 {
-    //双指针
+public class OFFER翻转单词顺序 {
+    //从后往前双指针
     public String reverseWords(String s) {
         String tmp = s.trim();
         int start = tmp.length() - 1;
@@ -22,5 +22,17 @@ public class OFFER反转单词顺序 {
             end = start;
         }
         return res.trim();
+    }
+
+    public String reverseWords1(String s) {
+       String[] tem = s.trim().split(" ");
+       StringBuilder sb = new StringBuilder();
+       for(int i = tem.length-1;i>=0;i--){
+           if(tem[i].equals("")){
+               continue;
+           }
+           sb.append(tem[i]+" ");
+       }
+       return sb.toString().trim();
     }
 }

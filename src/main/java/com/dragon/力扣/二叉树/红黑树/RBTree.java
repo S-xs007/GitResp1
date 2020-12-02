@@ -100,13 +100,13 @@ public class RBTree<K extends Comparable<K>, V> {
         if(node==null){
             return null;
         }
-        else if(node.left!=null){
+        else if(node.left!=null){       //左节点不为空
             RBNode p=node.left;
             while(p.right!=null){
                 p=p.right;
             }
             return p;
-        }else{
+        }else{                          //左节点为空
             RBNode p = node.parent;
             RBNode ch=node;
             while(p!=null&&ch==p.left){

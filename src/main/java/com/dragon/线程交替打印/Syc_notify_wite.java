@@ -52,6 +52,5 @@ public class Syc_notify_wite {
             }
 
         },"t2").start();
-
     }
 }

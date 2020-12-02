@@ -1,27 +1,26 @@
 package com.dragon.力扣.排序和搜索;
-
+/**
+ * @Author: zxS
+ * @Date: 11:44 2020/11/27
+ * @Description：保持0-i的有序
+ */
 public class C插入排序 {
-    public static void chaRuSort(int[] x) {
-        int len = x.length;
-        for (int i =1 ; i < len; i++) { //0-i内有序
-            for (int j = i; j >0 ; j--) {
 
-                //前面大就交换
-                if (x[j] < x[j - 1]) {
-                    int tem = x[j-1];
-                    x[j-1] = x[j];
-                    x[j] = tem;
-                }
-            }
-
-        }
+    public static void swap(int[] nums,int i,int j){
+        int tem = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tem;
     }
 
-    public static void main(String[] args) {
-        int[] x = {1, 4, 2, 5, 3, 4};
-        chaRuSort(x);
-        for (int i : x) {
-            System.out.println(i);
+
+    public static void chaRuSort1(int[] nums) {
+        int len = nums.length;
+        for(int i = 0;i < len;i++){
+            for(int j = i;j >= 1;j--){  //从i往前走
+                if(nums[j]<nums[j-1]){
+                    swap(nums,j,j-1);
+                }
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ public class OFFER打印从1到最大的n位数 {
             res[i] = i + 1;
         return res;
     }*/
+
     private List<Integer> list;
     //全排列
     public int[] printNumbers(int n) {
@@ -23,21 +24,21 @@ public class OFFER打印从1到最大的n位数 {
         }
         return res;
     }
-
+    //                n位数   第i位
     private void dfs(int n, int i, StringBuilder sb) {
-        if (i == n) {
+        if (i == n) {       //完事了
             while (sb.length() != 0 && sb.charAt(0) == '0') {
-                sb.deleteCharAt(0);
+                sb.deleteCharAt(0); //删除前面的空格
             }
-            if (sb.length() != 0) {
+            if (sb.length() != 0) { //sb转化成list
                 list.add(Integer.valueOf(sb.toString()));
             }
             return;
         }
         for (int j = 0; j < 10; j++) {
-            sb.append(j);
-            dfs(n, i + 1, sb);
-            if (sb.length() != 0) {
+            sb.append(j);       //拼接第一位
+            dfs(n, i + 1, sb);  //递归下一位
+            if (sb.length() != 0) { //清理现场，删除最后一位
                 sb.deleteCharAt(sb.length() - 1);
             }
         }

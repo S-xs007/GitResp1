@@ -15,7 +15,7 @@ public class OFFER二位数组中的查找 {
         }
         int lie = matrix[0].length-1;
         int hang = 0;
-            //从第0行最后一列开始找
+        //从右上角开始找
         //目标值大，就往下走 行数++
         //目标值小，就向左走 列数--
         while(lie>=0&&hang<matrix.length){

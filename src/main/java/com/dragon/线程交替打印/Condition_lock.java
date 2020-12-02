@@ -15,7 +15,6 @@ public class Condition_lock {
 
         new Thread(()->{
             lock.lock();
-
             try {
                 for (char s1 : ss) {
                     System.out.print(s1);

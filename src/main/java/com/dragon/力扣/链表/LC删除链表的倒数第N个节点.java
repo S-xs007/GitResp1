@@ -28,7 +28,7 @@ public class LC删除链表的倒数第N个节点 {
         }
     }
     //利用栈       需要额外空间
-    public ListNode removeNthFromEnd2(ListNode head, int n) {
+    /*public ListNode removeNthFromEnd2(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
         Deque<ListNode> stack = new LinkedList<ListNode>();
         ListNode cur = dummy;
@@ -43,11 +43,11 @@ public class LC删除链表的倒数第N个节点 {
         prev.next = prev.next.next;
         ListNode ans = dummy.next;
         return ans;
-    }
+    }*/
 
 
     //利用快慢指针  无额外空间
-    public ListNode removeNthFromEnd3(ListNode head, int n) {
+    /*public ListNode removeNthFromEnd3(ListNode head, int n) {
         ListNode dummy = new ListNode(0, head);
         ListNode first = head;
         ListNode second = dummy;
@@ -61,5 +61,5 @@ public class LC删除链表的倒数第N个节点 {
         second.next = second.next.next;
         ListNode ans = dummy.next;
         return ans;
-    }
+    }*/
 }
