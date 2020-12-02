@@ -1,6 +1,6 @@
 package com.dragon.力扣.动态规划;
 
-public class OFFER丑数 {
+public class OFFER丑数3有点难 {
     public int nthUglyNumber(int n) {
         int a = 0, b = 0, c = 0;
         int[] dp = new int[n];
@@ -24,5 +24,8 @@ public class OFFER丑数 {
     // 7.p3,p5同理
     // 8.返回第n个丑数
 
-
+    //找到第n个丑数  可以被a b c整除
+    public int nthUglyNumber(int n, int a, int b, int c) {
+       return 1;
+    }
 }
