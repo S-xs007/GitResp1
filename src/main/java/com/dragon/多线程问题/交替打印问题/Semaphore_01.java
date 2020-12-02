@@ -1,4 +1,4 @@
-package com.dragon.力扣.多线程问题.交替打印问题;
+package com.dragon.多线程问题.交替打印问题;
 import java.util.concurrent.Semaphore;
 
 public class Semaphore_01 {

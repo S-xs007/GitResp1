@@ -1,10 +1,9 @@
-package com.dragon.线程交替打印.thread01;
+package com.dragon.多线程问题.面试常见问题;
 
 import java.util.concurrent.TimeUnit;
 
 public class B模拟银行 {
 }
-
 
 /**
  * 模拟银行

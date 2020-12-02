@@ -1,4 +1,4 @@
-package com.dragon.线程交替打印;
+package com.dragon.多线程问题.交替打印数字和字母;
 
 import java.util.concurrent.CountDownLatch;
 //syc参数：可以显式的定义一把锁，也可以锁this，但在静态方法内需要锁.class

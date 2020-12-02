@@ -1,4 +1,4 @@
-package com.dragon.线程交替打印;
+package com.dragon.多线程问题.交替打印数字和字母;
 
 import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.TransferQueue;

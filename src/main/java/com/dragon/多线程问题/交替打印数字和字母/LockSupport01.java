@@ -1,11 +1,11 @@
-package com.dragon.线程交替打印;
+package com.dragon.多线程问题.交替打印数字和字母;
 
 import java.util.concurrent.locks.LockSupport;
 
 /**
  * 两个线程交替打印
  */
-public class TheadTest {
+public class LockSupport01 {
     static Thread t1,t2;
     public static void main(String[] args) {
         char[] ss = "123456789".toCharArray();

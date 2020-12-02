@@ -1,4 +1,4 @@
-package com.dragon.力扣.多线程问题.交替打印foo和bar;
+package com.dragon.多线程问题.交替打印foo和bar;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
