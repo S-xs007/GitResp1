@@ -4,7 +4,7 @@ import java.util.*;
 
 public class D单词接龙 {
         Map<String, Integer> wordId = new HashMap<String, Integer>();       //每个单词  对应的id
-        List<List<Integer>> edge = new ArrayList<List<Integer>>();  //边
+        List<List<Integer>> edge = new ArrayList<List<Integer>>();  //图
         int nodeNum = 0;
 
         public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -40,7 +40,7 @@ public class D单词接龙 {
             }
             return 0;
         }
-    //添加边
+    //建立无向图
     public void addEdge(String word) {
         addWord(word);
         int id1 = wordId.get(word);
@@ -57,7 +57,7 @@ public class D单词接龙 {
             array[i] = tmp;
         }
     }
-
+    //
     public void addWord(String word) {
         if (!wordId.containsKey(word)) {
             wordId.put(word, nodeNum++);
@@ -66,64 +66,6 @@ public class D单词接龙 {
     }
 
 
-}
-
-class Solution{
-    HashMap<String,Integer> wordId = new HashMap<>();      //存放单词的id
-    List<List<Integer>> edge = new ArrayList<>(); //变
-    int num = 0;
-    //单词接龙
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        for(String x:wordList){
-            addEdge(x);
-        }
-        addEdge(beginWord);
-        if(!wordId.containsKey(endWord))return 0;
-        //开始广度优先搜索
-        int[] dis = new int[num];  //记录每个节点
-        Arrays.fill(dis, Integer.MAX_VALUE);
-        int beginId = wordId.get(beginWord), endId = wordId.get(endWord);
-        dis[beginId] = 0;
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(beginId);
-        while(!queue.isEmpty()){
-            int tem = queue.poll();
-            if(tem==endId)return dis[endId]/2+1;
-            for(int s:edge.get(tem)){
-                if(dis[s]==Integer.MAX_VALUE){  //没走过
-                    dis[s] = dis[tem] + 1;
-                    queue.offer(s);
-                }
-
-            }
-        }
-        return 0;
-    }
-
-    public void addEdge(String word) {
-        addWord(word);
-        int id1 = wordId.get(word);
-        char[] words = word.toCharArray();
-        int len = word.length();
-        for(int i = 0;i<len;i++){
-            char tem = words[i];
-            words[i] = '*';
-            String str = new String(words);
-            addWord(str);
-            int id2 = wordId.get(str);
-            edge.get(id1).add(id2);
-            edge.get(id2).add(id1);
-            words[i] = tem;
-        }
-    }
-
-
-        public void addWord(String word) {
-        if(!wordId.containsKey(word)){
-            wordId.put(word,num++);
-            edge.add(new ArrayList<Integer>());
-        }
-    }
 }
 
 

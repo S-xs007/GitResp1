@@ -47,19 +47,19 @@ public class LC删除链表的倒数第N个节点 {
 
 
     //利用快慢指针  无额外空间
-    /*public ListNode removeNthFromEnd3(ListNode head, int n) {
-        ListNode dummy = new ListNode(0, head);
+    public ListNode removeNthFromEnd3(ListNode head, int n) {
+        ListNode root = new ListNode(0);
+        root.next = head;
         ListNode first = head;
-        ListNode second = dummy;
-        for (int i = 0; i < n; ++i) {
+        ListNode second = root;
+        for (int i = 0; i < n; ++i) {   //快节点先走n步
             first = first.next;
         }
-        while (first != null) {
+        while (first != null) { //然后一起走
             first = first.next;
             second = second.next;
         }
-        second.next = second.next.next;
-        ListNode ans = dummy.next;
-        return ans;
-    }*/
+        second.next = second.next.next; //删除
+        return root.next;
+    }
 }

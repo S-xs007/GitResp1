@@ -1,4 +1,6 @@
-package com.dragon.力扣.二叉树;
+package cn.bzqz.leetcode.二叉树;
+
+import com.dragon.力扣.二叉树.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,7 +10,7 @@ import java.util.Stack;
 public class OFFER二叉树的三序遍历 {
     List<Integer> result = new ArrayList<>();
     //递归版本
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(com.dragon.力扣.二叉树.TreeNode root) {
         if(root==null)return new ArrayList<>();
         result.add(root.val);
         preorderTraversal(root.left);
@@ -25,7 +27,7 @@ public class OFFER二叉树的三序遍历 {
      * @return
      */
     public List<Integer> preorderTraversal1(TreeNode root) {
-        LinkedList<Integer> result = new LinkedList<>();        //结果集合
+        List<Integer> result = new LinkedList<>();        //结果集合
         if(root==null) return result;
         LinkedList<TreeNode> stack = new LinkedList<>();        //栈
         stack.push(root);
@@ -40,7 +42,7 @@ public class OFFER二叉树的三序遍历 {
     }
     //中序遍历    左  中  右
     public List<Integer> midTraversal1(TreeNode root) {
-        LinkedList<Integer> result = new LinkedList<>();
+        List<Integer> result = new LinkedList<>();
         if(root==null)return result;
         LinkedList<TreeNode> stack = new LinkedList<>();
         while(!stack.isEmpty()||root!=null){
@@ -49,7 +51,7 @@ public class OFFER二叉树的三序遍历 {
                 root = root.left;
             }
             root = stack.pop();
-            result.addLast(root.val);
+            result.add(root.val);
             root = root.right;
         }
         return result;
@@ -90,36 +92,11 @@ public class OFFER二叉树的三序遍历 {
 
     List<Integer> list = new ArrayList<>();
     //二叉树后续遍历
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(com.dragon.力扣.二叉树.TreeNode root) {
         if(root==null)return new ArrayList<>();
         postorderTraversal(root.left);
         postorderTraversal(root.right);
         list.add(root.val);
-        return list;
-    }
-
-
-    public List<Integer> postorderTraversal12(TreeNode root) {
-        List<Integer> list = new ArrayList<>();
-        if(root==null)return list;
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode flag = null;
-        while(!stack.isEmpty() || root!=null){
-            while(root!=null){
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-            if(root.right==null || root.right == flag){
-                list.add(root.val);
-                flag = root;
-                root = null;
-            }else {
-                stack.push(root);
-                root = root.right;
-            }
-
-        }
         return list;
     }
 

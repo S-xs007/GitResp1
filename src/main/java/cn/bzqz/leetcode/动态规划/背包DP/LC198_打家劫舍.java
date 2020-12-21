@@ -20,7 +20,8 @@ public class LC198_打家劫舍 {
         return dp[nums.length-1];
     }
 
-    //2.房子成一环状
+
+    //2.房子成一环状，第一个和最后一个只能头偷
     public int rob(int[] nums) {
         if(nums==null || nums.length==0)return 0;
         if(nums.length==1)return nums[0];
@@ -62,4 +63,26 @@ public class LC198_打家劫舍 {
         return dp;
     }
 
+        //3n快披萨
+        public int maxSizeSlices(int[] slices) {
+            int[] slices1 = new int[slices.length - 1];
+            System.arraycopy(slices, 1, slices1, 0, slices.length - 1);
+            int[] slices2 = new int[slices.length - 1];
+            System.arraycopy(slices, 0, slices2, 0, slices.length - 1);
+            int ans1 = calculate(slices1);
+            int ans2 = calculate(slices2);
+            return Math.max(ans1, ans2);
+        }
+
+    public int calculate(int[] slices) {
+        int n = slices.length;
+        int choose = (n + 1) / 3;
+        int[][] dp = new int[n + 1][choose + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= choose; ++j) {
+                dp[i][j] = Math.max(dp[i - 1][j], (i - 2 >= 0 ? dp[i - 2][j - 1] : 0) + slices[i - 1]);
+            }
+        }
+        return dp[n][choose];
+    }
 }

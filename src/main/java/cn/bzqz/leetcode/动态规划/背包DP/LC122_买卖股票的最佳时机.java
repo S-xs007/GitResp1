@@ -64,7 +64,19 @@ public class LC122_买卖股票的最佳时机 {
             dp[2][0] = Math.max(dp[2][0], dp[2][1] + prices[i]);
         }
         return Math.max(dp[1][0], dp[2][0]);//买入一次和买入两次的最大值
+    }
 
+    //含冷冻期
 
+    //有手续费
+    public int maxProfit(int[] prices, int fee) {
+        //cash表示不持股的时候的最大值   hold表示持股的最大值
+        int cash = 0, hold = -prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            cash = Math.max(cash, hold + prices[i] - fee);  //为什么不用临时变量呢？因为如过 cash = hold+prices[i] - fee买入了
+            //           昨天持股，今天不动  昨天不持股，今天买      //而hold一定等于hold（啥也不干肯定比买入再卖出（亏手续费）强）
+            hold = Math.max(hold, cash - prices[i]);
+        }
+        return cash;
     }
 }

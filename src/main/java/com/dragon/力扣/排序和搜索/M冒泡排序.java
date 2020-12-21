@@ -11,16 +11,13 @@ public class M冒泡排序 {
         nums[j] = tem;
     }
     public static void paoSort(int[] nums){
-        int len = nums.length;;
-        int index = 0;
-        while (index<len){
-            for(int i = 0;i+1<len-index;i++){
+        for(int index = 0;index<nums.length;index++)
+            for(int i = 0;i+1<nums.length-index;i++){
                 if(nums[i]>nums[i+1]){
                     swap(nums,i,i+1);
                 }
             }
-            index++;
         }
     }
 
-}
+

@@ -1,4 +1,4 @@
-package cn.bzqz.lletcode.动态规划.完全背包;
+package cn.bzqz.leetcode.动态规划.完全背包;
 
 /**
  * nums = [1, 2, 3]

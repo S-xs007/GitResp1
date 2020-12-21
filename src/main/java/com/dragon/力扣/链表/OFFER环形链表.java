@@ -1,5 +1,5 @@
 package com.dragon.力扣.链表;
-
+//找到链表的第一个入换节点
 public class OFFER环形链表 {
     public ListNode detectCycle(ListNode head) {
         if (head == null) {

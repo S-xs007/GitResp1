@@ -3,12 +3,12 @@ package com.dragon.力扣.二叉树;
 import java.util.*;
 
 public class OFFER二叉树的最近公共祖先 {
-    //递归方式
+    //先序遍历
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null || root == p || root == q) return root;
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
-        if(left == null) return right;
+        if(left == null) return right;      //左右都不控，就返回root         左面空就在右面   有面孔就在左边
         if(right == null) return left;
         return root;
     }
