@@ -3,13 +3,14 @@ package com.dragon.力扣.排序和搜索;
 import java.util.Stack;
 
 /**
- * 快速排序演示
- * 核心思想就是：
- * 先从右边开始扫描，找到第一个小然后交换
- * 再从左边扫描，找到第一个大的进行交换
- * 知道左边的指针遇到右边指针就退出
+ * 快速排序在一趟排序中将数字分割成为独立的两部分，
+ * 左边一部分小于轴值，右边一部分大于轴值，轴值的选择理论上可以选择数组中的任何一个数组，
+ * 我们在这里考虑选择第一个数字。然后对两部分序列重复进行上述操作，快速排序可以用递归来完成
  *
- * 然后对左边和右边进行上述操作
+ * 时间复杂度：最好情况O(n*logn)——Partition函数每次恰好能均分序列，其递归树的深度就为.log2n.+1
+ * （.x.表示不大于x的最大整数），即仅需递归log2n次；
+ * 最坏情况O（n^2）,每次划分只能将序列分为一个元素与其他元素两部分，这时的快速排序退化为冒泡排序，
+ * 如果用数画出来，得到的将会是一棵单斜树，也就是说所有所有的节点只有左（右）节点的树；平均时间复杂度O(n*logn)
  */
 public class K快排 {
     public static void quickSort(int[] nums, int left, int right) {
@@ -48,7 +49,7 @@ public class K快排 {
         }
     }
 //非递归版
-    static private void quickSort1(int array[], int start, int end) {
+    static private void quickSort1(int[] array, int start, int end) {
         Stack<Integer> stack = new Stack<>();
         stack.push(start);
         stack.push(end);
