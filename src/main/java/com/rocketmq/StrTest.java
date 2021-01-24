@@ -1,7 +1,5 @@
 package com.rocketmq;
 
-import com.dragon.力扣.链表.ListNode;
-
 import java.util.*;
 
 public class StrTest {
