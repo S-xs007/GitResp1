@@ -1,33 +1,32 @@
 package com.jd.线程池和io流;
 
-import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
 
 import java.io.File;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
+/**
+ * @author coder01
+ */
 public class GZipAllFiles {
 
     private final int THREAD_CORE_COUNT = 4;
 
-    public void zipFiles(String[] fileName){
-        ExecutorService pool = Executors.newFixedThreadPool(THREAD_CORE_COUNT);
-        for(String name : fileName){
-            File file = new File(name);
+    public void zipFiles(String[] fileNames){
+        BlockingDeque blockingDeque = new LinkedBlockingDeque();
+        //自定义线程池，线程数大小4
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(4, 8, 1, TimeUnit.MINUTES, blockingDeque);
+        for(String fileName : fileNames){
+            File file = new File(fileName);
             if(file.exists()){
-                if(file.isDirectory()){ //是目录
+                if(file.isDirectory()){
                     File[] files = file.listFiles();
-                    for(int i = 0;i<file.length();i++){
-                        if(!files[i].isDirectory()){
-                            Runnable task = new GZipRunnable(files[i]);
-                            pool.submit(task);
-                        }
+                    for(File file1 : files){
+                        pool.submit(new GZipRunnable(file));
                     }
-                }else { //不是目录
-                    Runnable task = new GZipRunnable(file);
-                    pool.submit(task);
+                }else {
+                    pool.submit(new GZipRunnable(file));
                 }
+
             }
         }
         pool.shutdown();

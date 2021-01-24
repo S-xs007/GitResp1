@@ -29,11 +29,13 @@ public class GZipRunnable implements Runnable{
 
                 ) {
                     int b;
-                    while((b = in.read())!= -1) out.write(b);
+                    while((b = in.read())!= -1) {
+                        out.write(b);
+                    }
                     out.flush();
 
                 } catch (FileNotFoundException e) {
-                    logger.error("文件没有找到");
+                    logger.error("file not find");
                     e.printStackTrace();
                 } catch (IOException ioException) {
                     logger.error("传输错误");
