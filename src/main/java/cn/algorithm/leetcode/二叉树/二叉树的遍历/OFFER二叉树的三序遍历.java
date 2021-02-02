@@ -1,6 +1,6 @@
-package cn.algorithm.leetcode.二叉树;
+package cn.algorithm.leetcode.二叉树.二叉树的遍历;
 
-import com.dragon.力扣.二叉树.TreeNode;
+import cn.algorithm.leetcode.二叉树.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -10,7 +10,7 @@ import java.util.Stack;
 public class OFFER二叉树的三序遍历 {
     List<Integer> result = new ArrayList<>();
     //递归版本
-    public List<Integer> preorderTraversal(com.dragon.力扣.二叉树.TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode root) {
         if(root==null)return new ArrayList<>();
         result.add(root.val);
         preorderTraversal(root.left);
@@ -92,7 +92,7 @@ public class OFFER二叉树的三序遍历 {
 
     List<Integer> list = new ArrayList<>();
     //二叉树后续遍历
-    public List<Integer> postorderTraversal(com.dragon.力扣.二叉树.TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         if(root==null)return new ArrayList<>();
         postorderTraversal(root.left);
         postorderTraversal(root.right);

@@ -1,4 +1,6 @@
-package cn.algorithm.leetcode.二叉树;
+package cn.algorithm.leetcode.二叉树.二叉树的遍历.衍生题目;
+
+import cn.algorithm.leetcode.二叉树.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -13,6 +13,12 @@
             <artifactId>jol-core</artifactId>
             <version>0.9</version>
         </dependency>
+        <!--Netty-->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.54.Final</version>
+        </dependency>
         <!-- dom4j -->
         <dependency>
             <groupId>dom4j</groupId>

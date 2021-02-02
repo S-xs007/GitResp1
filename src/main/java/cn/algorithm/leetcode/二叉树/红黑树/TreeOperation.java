@@ -1,11 +1,6 @@
-package com.dragon.力扣.二叉树.红黑树;
+package cn.algorithm.leetcode.二叉树.红黑树;
 
-/******************************
- *
- * 码炫课堂技术交流Q群：963060292
- * 主讲：smart哥
- *
- ******************************/
+
 public class TreeOperation {
     /*
     树的结构示例：

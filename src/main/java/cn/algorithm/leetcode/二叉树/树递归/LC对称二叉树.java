@@ -1,4 +1,6 @@
-package cn.algorithm.leetcode.二叉树;
+package cn.algorithm.leetcode.二叉树.树递归;
+
+import cn.algorithm.leetcode.二叉树.TreeNode;
 
 public class LC对称二叉树 {
     public boolean isSymmetric(TreeNode root) {
