@@ -1,5 +1,7 @@
 package cn.algorithm.leetcode.栈和队列;
 
+import cn.algorithm.leetcode.链表.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
