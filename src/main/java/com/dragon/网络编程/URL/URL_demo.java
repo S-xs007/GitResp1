@@ -1,14 +1,13 @@
-package com.dragon.网络编程;
+package com.dragon.网络编程.URL;
 
-import com.sun.jndi.toolkit.url.UrlUtil;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
  * @author coder01
+ * URL类提供了URL组成部分的只读访问方法
+ * URL主要利用从服务器下载资源
  */
 public class URL_demo {
     //url格式：protocol://userInfo@host:port/path?query#fragment

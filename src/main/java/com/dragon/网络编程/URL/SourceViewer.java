@@ -1,9 +1,10 @@
-package com.dragon.网络编程;
+package com.dragon.网络编程.URL;
 
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 //下载一个web界面
+//2.也可以使用getContent的方式，他回去寻找Content-type字段，但这只适用于文本和图像，视频啥的无法判断
 public class SourceViewer {
     public static void main (String[] args) {
 
