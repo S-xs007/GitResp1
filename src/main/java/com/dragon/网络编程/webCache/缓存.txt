@@ -1,0 +1,9 @@
+一般认位GET请求的页面可以缓存
+HTTP 1.0 Expires首部控制缓存过期事件
+HTTP 1.1 Cache-Control (更细粒度的控制，且会覆盖Expires首部)
+    --max-age=[seconds] 从现在知道缓存过期之前的秒数
+    --s-maxage=[seconds] 从现在直到缓存项在共享缓存中过期的秒数
+    --public 可以缓存一个经过认证的响应
+    --private 只有单个用户的缓存可以保存，而共享缓存不应保存
+    --no-cache 客户端每次访问要用Etag或Last-modified首部重新验证响应字段（本地缓存的副本早于Last-modified或Etag不同才真正执行GET请求获得数据，否则取缓存）
+    --no-store 不缓存
