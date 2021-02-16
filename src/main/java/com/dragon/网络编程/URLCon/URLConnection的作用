@@ -1,0 +1,28 @@
+1. 这个类可以进行URL对应的服务器进行HTTP信息的传递，读和写，且可以设置相应的头信息
+                URL u = new URL(args[0]);
+                URLConnection uc = u.openConnection();
+                //上面这样还没有进行连接，除非调用连接，以及获取流的方法，在这之前可以修改下面这些字段
+      //URL
+      protected URL url;
+      //读服务器
+      protected boolean doInput = true;
+      //写服务器
+      protected boolean doOutput = false;
+      //是否允许用户和服务器交互（认证）
+      private static boolean defaultAllowUserInteraction = false;
+      //使用缓存
+      private static boolean defaultUseCaches = true;
+      //如果服务器>这个时间之后进行了修改，就返回最新的，但是服务器可能会忽略
+      protected long ifModifiedSince = 0;
+      //是否已经连接
+      protected boolean connected = false;
+      //连接超时时间
+      private int connectTimeout;
+      //请求输入流超时时间
+      private int readTimeout;
+
+      private MessageHeader requests;
+
+      private static FileNameMap fileNameMap;
+
+      private static boolean fileNameMapLoaded = false;
