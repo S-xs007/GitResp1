@@ -1,0 +1,12 @@
+1.操作系统把指向某个特定端口的入栈连接请求存储在一个先进先出的队列中，java默认位50，最烈达到做大长度后，新的连接请求会被拒绝
+ServerSocket 构造函数有三个值  端口号                  入站队列大小                  指定的ip地址
+                            端口为0就是用匿名端口      默认操作系统的最大队列大小      可用于多网卡的电脑指定不同id地址（不同的以太网卡）
+
+                            可以使用toString来打印这三个值
+
+ServerSocket ss = new ServerSocket();
+//设置服务端套接字的首选项
+ss.setSoTimeOut(0);//连接超时毫秒数，默认为0永不超时
+ss.setReceiveBufferSize(int size);//接受缓冲区大小
+InetAddress ia = new InetAddress(80)；
+ss.bind(ia);
